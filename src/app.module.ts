@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './graphql/objects/user.object';  // Certifique-se de que o caminho esteja correto
+import { AppController } from './app.controller';
 import { UserResolver } from './graphql/resolver/user.resolver';
-
+import { User } from './graphql/objects/user.object';
 
 @Module({
   imports: [
@@ -17,10 +17,10 @@ import { UserResolver } from './graphql/resolver/user.resolver';
     TypeOrmModule.forFeature([User]), 
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: true, 
+      autoSchemaFile: true,
     }),
   ],
-  controllers: [],
+  controllers: [AppController],  // Adicione o AppController aqui
   providers: [UserResolver],
 })
 export class AppModule {}
