@@ -19,14 +19,14 @@ O endpoint para criação de usuário permite adicionar um novo usuário ao banc
 
 **Exemplo de Mutação**:
 
-![alt text](image.png)
+![alt text](screenshots\image.png)
 
 ### 2. Listagem de Usuários
 
 O endpoint de listagem retorna todos os usuários cadastrados no banco de dados, mostrando informações como ID, nome, email, e datas de criação e atualização.
 
 **Exemplo de Query:**:
-![alt text](image-1.png)
+![alt text](screenshots\image-1.png)
 
 ### 3. Edição de Usuário
 
@@ -34,9 +34,9 @@ O endpoint de edição permite atualizar as informações de um usuário existen
 
 **Exemplo de Mutação**:
 
-![alt text](image-2.png)
+![alt text](screenshots\image-2.png)
 
 ### 4. Deleção de Usuário
 O endpoint de deleção permite remover um usuário do banco de dados com base no seu ID.
 
-![alt text](image-3.png)
+![alt text](screenshots\image-3.png)
