@@ -1,17 +1,29 @@
-import { Field, ObjectType } from "@nestjs/graphql";
+import { Field, ObjectType } from '@nestjs/graphql';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @ObjectType()
-export class userObject{
-    @Field()
-    id: number;
-    @Field()
-    name: string;
-    @Field()
-    email: string;
-    @Field()
-    password: string;
-    @Field()
-    created_at: Date;
-    @Field()
-    updated_at: Date;
+@Entity()
+export class User {
+  @Field()
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Field()
+  @Column()
+  name: string;
+
+  @Field()
+  @Column({ unique: true })
+  email: string;
+
+  @Column()
+  password: string;
+  
+  @Field()
+  @CreateDateColumn()
+  created_at: Date;
+
+  @Field()
+  @UpdateDateColumn()
+  updated_at: Date;
 }

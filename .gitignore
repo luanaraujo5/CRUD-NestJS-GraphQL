@@ -12,28 +12,31 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# OS
+# OS-specific files
 .DS_Store
+Thumbs.db
 
 # Tests
 /coverage
 /.nyc_output
+/jest/
+/reports/
 
 # IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
+/.idea/
+/.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.sublime-project
+*.sublime-workspace
+/.project
+/.classpath
+/.factorypath
+/.c9/
+/.settings/
+/*.launch
 
 # dotenv environment variable files
 .env
@@ -42,9 +45,10 @@ lerna-debug.log*
 .env.production.local
 .env.local
 
-# temp directory
-.temp
-.tmp
+# temp directories
+/.temp
+/.tmp
+/.cache
 
 # Runtime data
 pids
@@ -54,3 +58,26 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# Nuxt.js build output
+.nuxt
+
+# SQLite database files
+*.sqlite
+*.sqlite3
+
+# TypeORM migrations (if using TypeORM)
+**/migrations/*
