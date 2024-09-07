@@ -7,7 +7,7 @@ import * as bcrypt from 'bcrypt';
 import { UpdateUserInput } from '../inputs/update-user.input';
 
 @Resolver(() => User)
-export class UserResolver {
+export class UserResolver { //logica geral da aplicação
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
@@ -58,7 +58,7 @@ export class UserResolver {
       data.password = await bcrypt.hash(data.password, 10);
     }
 
-    // Remover confirmPassword do objeto antes de atualizar o banco de dados
+    // Remover confirmPassword do objeto antes de atualizar o banco de dados (talvez nao seja a melhor abordagem)
     const { confirmPassword, ...updateData } = data;
 
     await this.userRepository.update(data.id, updateData);

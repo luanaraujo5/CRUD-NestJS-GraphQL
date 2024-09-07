@@ -20,7 +20,7 @@ import { User } from './graphql/objects/user.object';
       autoSchemaFile: true,
     }),
   ],
-  controllers: [AppController],  // Adicione o AppController aqui
+  controllers: [AppController],
   providers: [UserResolver],
 })
 export class AppModule {}

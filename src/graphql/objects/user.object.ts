@@ -3,7 +3,7 @@ import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 
 @ObjectType()
 @Entity()
-export class User {
+export class User { //defino a estrutura de dados que será retornada pela query e armazenada no banco de dados
   @Field()
   @PrimaryGeneratedColumn()
   id: number;
