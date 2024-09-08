@@ -4,6 +4,6 @@ import { Controller, Get } from '@nestjs/common';
 export class AppController {
   @Get('/')
   getRoot(): string {
-    return 'Server Running by Luan';
+    return '🪼 GraphQL Server Running';
   }
 }

@@ -1,7 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateUserArgs } from '../args/create-user.args';
+import { CreateUserInput } from '../inputs/create-user.input';
 import { User } from '../objects/user.object';
 import * as bcrypt from 'bcrypt';
 import { UpdateUserInput } from '../inputs/update-user.input';
@@ -19,18 +19,15 @@ export class UserResolver { //logica geral da aplicação
   }
 
   @Mutation(() => Number)
-  async createUser(@Args() args: CreateUserArgs): Promise<number> {
-    const { name, email, password, confirmPassword } = args.data;
+  async createUser(@Args('data') data: CreateUserInput): Promise<number> {
+    const { name, email, password, confirmPassword } = data;
 
-    // Valida se a senha e a confirmação são iguais
     if (password !== confirmPassword) {
       throw new Error('Password and confirm password do not match');
     }
 
-    // Criptografa a senha
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Cria um novo usuário
     const newUser = this.userRepository.create({
       name,
       email,
@@ -54,11 +51,9 @@ export class UserResolver { //logica geral da aplicação
         throw new Error('Password and confirm password do not match');
       }
 
-      // Criptografa a nova senha
       data.password = await bcrypt.hash(data.password, 10);
     }
 
-    // Remover confirmPassword do objeto antes de atualizar o banco de dados (talvez nao seja a melhor abordagem)
     const { confirmPassword, ...updateData } = data;
 
     await this.userRepository.update(data.id, updateData);
