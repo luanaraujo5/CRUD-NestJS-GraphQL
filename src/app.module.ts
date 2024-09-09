@@ -23,6 +23,7 @@ import { AppController } from './app.controller';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
+      playground: true,
     }),
     AuthModule,
   ],
