@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UserResolver } from './graphql/resolver/user.resolver';
 import { User } from './graphql/objects/user.object';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { User } from './graphql/objects/user.object';
     }),
     AuthModule,
   ],
+  controllers: [AppController],
   providers: [UserResolver],
 })
 export class AppModule {}
